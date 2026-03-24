@@ -1,4 +1,5 @@
-test
+ft_strlen_test
+ft_strcpy_test
 
 # Prerequisites
 *.d

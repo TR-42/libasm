@@ -2,14 +2,11 @@ NAME	:= libasm.a
 
 SRCS	:= \
 	ft_strlen.s\
-# 	ft_strcpy.s\
+	ft_strcpy.s\
 # 	ft_strcmp.s\
 # 	ft_write.s\
 # 	ft_read.s\
 # 	ft_strdup.s\
-
-TESTS	:= \
-	tests/ft_strlen_tests.c\
 
 OBJS = $(SRCS:.s=.o)
 AS	=	nasm
@@ -29,5 +26,7 @@ re: fclean all
 
 .PHONY: all clean
 
-test: ${TESTS} ${NAME}
+ft_strlen_test: tests/ft_strlen_tests.c ${NAME}
+	${CC} -o $@ $^
+ft_strcpy_test: tests/ft_strcpy_tests.c ${NAME}
 	${CC} -o $@ $^
