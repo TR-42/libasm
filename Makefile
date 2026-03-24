@@ -1,14 +1,19 @@
 NAME	:= libasm.a
 
 SRCS	:= \
-	ft_strlen.asm\
-	ft_strcpy.asm\
-	ft_strcmp.asm\
-	ft_write.asm\
-	ft_read.asm\
-	ft_strdup.asm\
+	ft_strlen.s\
+# 	ft_strcpy.s\
+# 	ft_strcmp.s\
+# 	ft_write.s\
+# 	ft_read.s\
+# 	ft_strdup.s\
 
-OBJS = $(SRCS:.asm=.o)
+TESTS	:= \
+	tests/ft_strlen_tests.c\
+
+OBJS = $(SRCS:.s=.o)
+AS	=	nasm
+ASFLAGS	=	-f elf64
 
 all: $(NAME)
 $(NAME): $(OBJS)
@@ -23,3 +28,6 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean
+
+test: ${TESTS} ${NAME}
+	${CC} -o $@ $^
