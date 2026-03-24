@@ -6,7 +6,7 @@ SRCS	:= \
 	ft_strcmp.s\
 	ft_write.s\
 	ft_read.s\
-# 	ft_strdup.s\
+	ft_strdup.s\
 
 OBJS = $(SRCS:.s=.o)
 AS	=	nasm
@@ -35,4 +35,6 @@ ft_strcmp_test: tests/ft_strcmp_tests.c ${NAME}
 ft_write_test: tests/ft_write_tests.c ${NAME}
 	${CC} -o $@ $^
 ft_read_test: tests/ft_read_tests.c ${NAME}
+	${CC} -o $@ $^
+ft_strdup_test: tests/ft_strdup_tests.c ${NAME}
 	${CC} -o $@ $^
